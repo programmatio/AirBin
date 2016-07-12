@@ -1,0 +1,29 @@
+extends layouts/default.pug
+
+block content
+
+    if mySnippets
+
+        each snippet in mySnippets
+
+            h1.page-header #{snippet.name}
+            .row
+                pre
+                    code(class=snippet.language) #{snippet.contents}
+
+                .well
+                  p
+                    strong URL: 
+                    | #{snippet.url}
+                    br
+                    strong Language: 
+                    | #{snippet.language}
+                    br
+                    strong Privacy:
+                    | #{snippet.privacy}
+                    br
+                    strong Date: 
+                    date.creation(datetime=snippet.date) #{snippet.date}
+                    br
+                    strong Expiry: 
+                    date.expiry(datetime=snippet.dateExpiry) #{snippet.dateExpiry}

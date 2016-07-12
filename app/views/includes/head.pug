@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    meta(name='viewport', content='width=device-width,initial-scale=1')
+
+    title= AirBin
+
+    link(rel="canonical")
+
+    //- I would normally use WebPack but to save time I'm loading everything as is at the moment
+
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/default.min.css')
+    link(rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/default.min.css')
+    link(rel='stylesheet', href='/css/dashboard.css')  
+
+    //- Also would normally WebPack everything. Depending on the projects size, I could just concatinate and minify. Put part required before page render in the header (Tracking, rendering dependencies) and other things in the footer to let the page load as soon as possible.
+
+    script(src='/js/jquery.min.js')
+    script(src='/js/bootstrap.min.js')
+    script(src='/js/autosize.min.js')
+    script(src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/highlight.min.js")
+    script(src='/js/custom.js')
+
+    block head

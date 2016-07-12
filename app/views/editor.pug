@@ -1,0 +1,47 @@
+extends layouts/default.pug
+
+block content
+
+  h1.page-header New Paste
+  .row.placeholders
+
+    form(role='form' name='air_form', method='post', action='/')
+      .form-group
+        input(type='hidden', name='_csrf', value=csrfToken)
+        label(for='name') Text Area
+        textarea(name='contents')#paste-code.form-control.paste-area
+
+      .panel.panel-default
+        .panel-heading Optional Paste Settings
+        .panel-body
+          .row
+            .col-lg-6
+              label(for='language') Syntax Highlighting
+              select.form-control(name='language', tabindex='-1')
+                option None
+                each language in languages
+                    option(value=language) #{language}
+
+              label(for='dateExpiry') Paste Expiration
+              select.form-control(name='dateExpiry', tabindex='-1')
+                option(value='never', selected='selected') Never
+                option(value='10m') 10 Minutes
+                option(value='1h') 1 Hour
+                option(value='1d') 1 Day
+                option(value='1w') 1 Week
+                option(value='2w') 2 Weeks
+
+            .col-lg-6
+              label(for='privacy') Paste Exposure:
+              select.form-control(name='privacy', tabindex='-1')
+                option(value='false', selected='selected') Public
+                option(value='true') Private
+
+            .col-lg-3
+              label(for='name') Paste Name / Title:
+              input.form-control(type='text', name='name', size='20', maxlength='60', value='')
+                
+            .col-lg-3
+              label(for='submit') Create a unique URL
+              input#submit.form-control.btn.btn-primary(name='submit', type='submit', value='Create New Paste')
+

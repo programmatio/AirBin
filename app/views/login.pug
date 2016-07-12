@@ -1,0 +1,30 @@
+extends layouts/default.pug
+
+block content
+
+  form.form-horizontal(action='', method='POST')
+    input(type='hidden', name='_csrf', value=csrfToken)
+
+    fieldset
+      #message
+      if errors
+        each error in errors
+          .alert.alert-danger #{error.msg}
+      #legend
+        legend Login
+      .control-group
+
+        // E-mail
+        label.control-label(for='username') Username
+        .controls
+          input#username.input-xlarge(type='text', name='username', placeholder='')
+          p.help-block Please provide your username
+      .control-group
+        // Password
+        label.control-label(for='password') Password
+        .controls
+          input#password.input-xlarge(type='password', name='password', placeholder='')
+          p.help-block Password should be at least 4 characters
+      .control-group
+          button.btn.btn-success Login
+
