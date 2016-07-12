@@ -1,0 +1,45 @@
+.modal.logout(tabindex='-1', role='dialog', aria-hidden='true')
+  .modal-dialog.modal-sm
+    .modal-content
+      .modal-header
+        h4
+          | Logout 
+          i.fa.fa-lock
+      .modal-body
+        i.fa.fa-question-circle
+        |  Are you sure you want to logout?
+      .modal-footer
+        a.btn.btn-primary.btn-block(href='/logout') Logout
+
+.modal.destroy(tabindex='-1', role='dialog', aria-hidden='true')
+  .modal-dialog.modal-sm
+    .modal-content
+      .modal-header
+        h4
+          | Destroy 
+          i.fa.fa-lock
+      .modal-body
+        i.fa.fa-question-circle
+        |  Are you sure you want to destroy the user?
+      .modal-footer
+        a.btn.btn-danger.btn-block(href='/destroy') Destroy
+
+
+include ../includes/head.pug
+  //- block main
+include ../includes/header.pug
+.container-fluid
+  .row
+    include ../includes/sidebar.pug
+
+    .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+      if success_msg
+        .alert.alert-success #{success_msg}
+      if error_msg
+        .alert.alert-danger #{error_msg}
+      if error
+        .alert.alert-danger #{error}
+      block content
+
+
+

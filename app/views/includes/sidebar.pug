@@ -1,0 +1,12 @@
+.col-sm-3.col-md-2.sidebar
+
+  //- If snippets availible are in database - show snippets
+  if snippets
+    ul.nav.nav-sidebar
+      each snippet in snippets
+        li
+          a(href=snippet.url)=snippet.name
+          
+  //- If ther are no snippets availible - show message
+  else
+    h2 Currently no snippets availible, click on "New Snippet" to create a new one

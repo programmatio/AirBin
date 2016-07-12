@@ -1,0 +1,29 @@
+extends layouts/default.pug
+
+block content
+
+    h1.page-header #{name}
+    .row
+        pre
+            code(class=language) #{contents}
+
+
+        .well
+          h3
+            span.fa.fa-user
+            | Created by: #{name}
+          p
+            strong URL: 
+            | #{url}
+            br
+            strong Language: 
+            | #{language}
+            br
+            strong Privacy:
+            | #{privacy}
+            br
+            strong Date: 
+            date.creation(datetime=date) #{date}
+            br
+            strong Expiry: 
+            date.expiry(datetime=dateExpiry) #{dateExpiry}

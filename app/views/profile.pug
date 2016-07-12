@@ -1,0 +1,22 @@
+extends layouts/default.pug
+
+block content
+
+
+  .col-sm-6
+    .well
+      h3
+        span.fa.fa-user
+        |  Local
+      p
+        strong id
+        | : #{username}
+        br
+        strong email
+        | : #{email}
+        
+        br
+        button.btn.btn-danger(data-toggle='modal', data-target='.destroy') Destroy the account
+
+
+
